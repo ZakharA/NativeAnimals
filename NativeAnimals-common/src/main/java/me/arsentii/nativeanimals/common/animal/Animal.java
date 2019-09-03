@@ -5,9 +5,6 @@
  */
 package me.arsentii.nativeanimals.common.animal;
 
-import java.util.Arrays;
-import java.util.Objects;
-
 /**
  *
  * @author zakhar
@@ -60,7 +57,10 @@ public class Animal {
     public Animal() {
     }
 
-    public Animal(Long id, String scientificName, String commonName, Taxonomy taxonomy, Diet diet, String description, Status status, byte[] image, Continent continent, Habitat habitat) {
+    public Animal(Long id, String scientificName, String commonName, 
+                    Taxonomy taxonomy, Diet diet, String description, 
+                    Status status, byte[] image, Continent continent, 
+                    Habitat habitat) {
         this.id = id;
         this.scientificName = scientificName;
         this.commonName = commonName;
