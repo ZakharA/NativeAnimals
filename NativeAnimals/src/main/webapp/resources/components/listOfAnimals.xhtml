@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:cc="http://xmlns.jcp.org/jsf/composite"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:az="http://xmlns.jcp.org/jsf/composite/components">
 
     <!-- INTERFACE -->
     <cc:interface>
@@ -10,6 +11,12 @@
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
-        <h:button value="Click me!!!!"></h:button>
+        <section class="container">
+            <div class="row">
+                <az:animalCard/>
+                <az:animalCard/>
+                <az:animalCard/>
+            </div>
+        </section>
     </cc:implementation>
 </html>
