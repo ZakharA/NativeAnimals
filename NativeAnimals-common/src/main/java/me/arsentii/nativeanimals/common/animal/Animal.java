@@ -5,6 +5,15 @@
  */
 package me.arsentii.nativeanimals.common.animal;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  *
  * @author zakhar
@@ -17,6 +26,7 @@ enum Diet {
 }
 
 enum Status {
+
     ENDANGERED,
     THREATENED,
     VULNERABLE
@@ -33,6 +43,7 @@ enum Continent {
 }
 
 enum Habitat {
+
     DESERTS,
     GRASSLANDS,
     FORESTS,
@@ -42,29 +53,37 @@ enum Habitat {
     TUNDRA
 }
 
+@Entity
 public class Animal {
+
+    @Id
+    @GeneratedValue
     private Long id;
     private String scientificName;
+    @NotNull
     private String commonName;
-    private Taxonomy taxonomy;
+    @Enumerated(EnumType.STRING)
     private Diet diet;
+    @Size(min = 10, max = 2000)
     private String description;
+    @Enumerated(EnumType.STRING)
     private Status status;
-    private byte[] image;
+    private String image;
+    @Enumerated(EnumType.STRING)
     private Continent continent;
+    @Enumerated(EnumType.STRING)
     private Habitat habitat;
 
     public Animal() {
     }
 
-    public Animal(Long id, String scientificName, String commonName, 
-                    Taxonomy taxonomy, Diet diet, String description, 
-                    Status status, byte[] image, Continent continent, 
-                    Habitat habitat) {
+    public Animal(Long id, String scientificName, String commonName,
+            Diet diet, String description,
+            Status status, String image, Continent continent,
+            Habitat habitat) {
         this.id = id;
         this.scientificName = scientificName;
         this.commonName = commonName;
-        this.taxonomy = taxonomy;
         this.diet = diet;
         this.description = description;
         this.status = status;
@@ -97,14 +116,6 @@ public class Animal {
         this.commonName = commonName;
     }
 
-    public Taxonomy getTaxonomy() {
-        return taxonomy;
-    }
-
-    public void setTaxonomy(Taxonomy taxonomy) {
-        this.taxonomy = taxonomy;
-    }
-
     public Diet getDiet() {
         return diet;
     }
@@ -129,11 +140,11 @@ public class Animal {
         this.status = status;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -155,18 +166,15 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" + "id=" + id + 
-                        ", scientificName=" + scientificName + 
-                        ", commonName=" + commonName + 
-                        ", taxonomy=" + taxonomy + 
-                        ", diet=" + diet + 
-                        ", description=" + description + 
-                        ", status=" + status + 
-                        ", image=" + image + 
-                        ", continent=" + continent + 
-                        ", habitat=" + habitat + '}';
+        return "Animal{" + "id=" + id
+                + ", scientificName=" + scientificName
+                + ", commonName=" + commonName
+                + ", diet=" + diet
+                + ", description=" + description
+                + ", status=" + status
+                + ", image=" + image
+                + ", continent=" + continent
+                + ", habitat=" + habitat + '}';
     }
-    
-    
-    
+
 }
