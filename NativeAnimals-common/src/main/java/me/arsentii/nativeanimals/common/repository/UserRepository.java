@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package repository;
+package me.arsentii.nativeanimals.common.repository;
 
 import javax.ejb.Remote;
 

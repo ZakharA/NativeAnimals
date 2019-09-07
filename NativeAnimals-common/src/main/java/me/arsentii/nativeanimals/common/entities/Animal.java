@@ -12,6 +12,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -55,7 +57,10 @@ enum Habitat {
 }
 
 @Entity
+@NamedQuery(name = Animal.GET_ALL_QUERY_NAME, query = "SELECT a FROM Animal a DESC")
 public class Animal implements Serializable {
+
+    public static final String GET_ALL_QUERY_NAME = "Animal.getAll";
 
     @Id
     @GeneratedValue
