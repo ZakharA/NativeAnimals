@@ -5,6 +5,7 @@
  */
 package me.arsentii.nativeanimals.common.entities;
 
+import java.io.Serializable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -54,7 +55,7 @@ enum Habitat {
 }
 
 @Entity
-public class Animal {
+public class Animal implements Serializable {
 
     @Id
     @GeneratedValue

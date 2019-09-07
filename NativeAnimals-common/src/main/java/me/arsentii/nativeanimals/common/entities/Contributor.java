@@ -6,18 +6,19 @@
 
 package me.arsentii.nativeanimals.common.entities;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author zakhar
  */
 @Entity
-public class Contributor extends User {
+public class Contributor extends User implements Serializable {
     
+    @OneToMany
     private List<Animal> createdAnimals;
 
     public Contributor() {
