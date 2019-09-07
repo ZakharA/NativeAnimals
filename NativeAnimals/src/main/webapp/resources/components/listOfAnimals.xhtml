@@ -3,20 +3,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:cc="http://xmlns.jcp.org/jsf/composite"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:az="http://xmlns.jcp.org/jsf/composite/components">
+      xmlns:az="http://xmlns.jcp.org/jsf/composite/components"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <!-- INTERFACE -->
     <cc:interface>
+        <cc:attribute name="listOfAnimals"/>
     </cc:interface>
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
         <section>
             <div class="row mb-3">
-                <az:animalCard/>
-                <az:animalCard/>
-                <az:animalCard/>
+                <c:forEach var="animal" items="#{cc.attrs.listOfAnimals}" >
+                    <az:animalCard/>
+                </c:forEach>
             </div>
         </section>
+        <az:pagination/>
     </cc:implementation>
 </html>

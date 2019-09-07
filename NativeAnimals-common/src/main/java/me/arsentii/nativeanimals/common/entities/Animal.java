@@ -57,7 +57,7 @@ enum Habitat {
 }
 
 @Entity
-@NamedQuery(name = Animal.GET_ALL_QUERY_NAME, query = "SELECT a FROM Animal a DESC")
+@NamedQuery(name = Animal.GET_ALL_QUERY_NAME, query = "SELECT a FROM Animal a")
 public class Animal implements Serializable {
 
     public static final String GET_ALL_QUERY_NAME = "Animal.getAll";

@@ -1,20 +1,24 @@
+package me.arsentii.nativeanimals.common.repository;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-package me.arsentii.nativeanimals.common.repository;
+
 
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import me.arsentii.nativeanimals.common.entities.Animal;
-
+import me.arsentii.nativeanimals.common.repository.AnimalRepository;
 /**
  *
  * @author zakhar
  */
+@Stateless
 public class AnimalRepositoryImp implements AnimalRepository {
     
     @PersistenceContext(unitName = "me.arsentii_NativeAnimals-ejb_ejb_1.0-SNAPSHOTPU")
