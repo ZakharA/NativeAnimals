@@ -5,6 +5,7 @@
 
     <!-- INTERFACE -->
     <cc:interface>
+        <cc:attribute name="animal" />
     </cc:interface>
 
     <!-- IMPLEMENTATION -->
@@ -13,8 +14,8 @@
         <article class="card col-lg col-sm-6 col-xs-12 ">
             <img class="card-img-top" src="https://via.placeholder.com/250x150"></img>
             <div class="card-body">
-                <h5 class="card-title">Card 1</h5>
-                <p class="card-text">Some text </p>
+                <h5 class="card-title">#{cc.attrs.animal.getCommonName()}</h5>
+                <p class="card-text"> </p>
                 <a href="#" class="card-link">Go somewhere</a>
             </div>
         </article>
