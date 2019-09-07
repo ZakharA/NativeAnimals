@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package me.arsentii.nativeanimals.common.animal;
+package me.arsentii.nativeanimals.common.entities;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -62,15 +62,20 @@ public class Animal {
     private String scientificName;
     @NotNull
     private String commonName;
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Diet diet;
+    @NotNull
     @Size(min = 10, max = 2000)
     private String description;
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Status status;
     private String image;
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Continent continent;
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Habitat habitat;
 
