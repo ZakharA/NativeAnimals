@@ -17,9 +17,5 @@ import org.junit.jupiter.api.Test;
  * @author zakhar
  */
 public class NewSessionBeanTest {
-    @Test
-    @DisplayName("First test")
-    public void test(){
-        fail("a failing test");
-    }
+
 }
