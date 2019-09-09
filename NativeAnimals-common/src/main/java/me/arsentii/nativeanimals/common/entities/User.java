@@ -6,11 +6,15 @@
 
 package me.arsentii.nativeanimals.common.entities;
 
+import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -25,15 +29,17 @@ public class User {
     private String userName;
     private String email;
     private String password;
-
+    @Temporal(TemporalType.DATE)
+    private LocalDate registrationDate;
     public User() {
     }
 
-    public User(long id, String userName, String email, String password) {
+    public User(long id, String userName, String email, String password, LocalDate registrationDate) {
         this.id = id;
         this.userName = userName;
         this.email = email;
         this.password = password;
+        this.registrationDate = registrationDate;
     }
 
     public long getId() {
@@ -67,6 +73,13 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
+
+    public LocalDate getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(LocalDate registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+   
 }
