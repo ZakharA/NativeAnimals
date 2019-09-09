@@ -10,8 +10,8 @@
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Native Animals</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <h:link class="navbar-brand" outcome="index.xhtml">Native Animals</h:link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -19,15 +19,15 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <h:link class="nav-link" outcome="index.xhtml">Home <span class="sr-only">(current)</span></h:link>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
                     </li>
                 </ul>
                 <h:form class="form-inline my-2 my-lg-0">
-                    <h:commandButton class="btn btn-outline-success mr-1" type="button" value="Log In"/>
-                    <h:commandButton class="btn btn-outline-success mr-1" type="button" value="Signup"/>
+                    <h:button class="btn btn-outline-success mr-1" outcome="signIn.xhtml" value="Log In"/>
+                    <h:button class="btn btn-outline-success mr-1" outcome="signUp.xhtml" value="Signup"/>
                 </h:form>
             </div>
         </nav>
