@@ -20,23 +20,23 @@ import javax.persistence.OneToMany;
 public class Contributor extends User implements Serializable {
     
     @OneToMany
-    private List<Animal> createdAnimals;
+    private List<Animal> createdAnimalArticles;
 
     public Contributor() {
         super();
     }
 
-    public Contributor(long id, String userName, String email, String password, List<Animal> createdAnimals) {
+    public Contributor(long id, String userName, String email, String password, List<Animal> createdAnimalArticles) {
         super(id, userName, email, password,  LocalDate.now());
-        this.createdAnimals = createdAnimals;
+        this.createdAnimalArticles = createdAnimalArticles;
     }
 
     public List<Animal> getCreatedAnimals() {
-        return createdAnimals;
+        return createdAnimalArticles;
     }
 
-    public void setCreatedAnimals(List<Animal> createdAnimals) {
-        this.createdAnimals = createdAnimals;
+    public void setCreatedAnimals(List<Animal> createdAnimalArticles) {
+        this.createdAnimalArticles = createdAnimalArticles;
     }
 
 }
