@@ -6,6 +6,7 @@
 
     <!-- INTERFACE -->
     <cc:interface>
+        <cc:attribute name="showLoginAndSignup" type="java.lang.Boolean" default="true" />
     </cc:interface>
 
     <!-- IMPLEMENTATION -->
@@ -25,7 +26,7 @@
                         <a class="nav-link" href="#">Link</a>
                     </li>
                 </ul>
-                <h:form class="form-inline my-2 my-lg-0">
+                <h:form class="form-inline my-2 my-lg-0" rendered="#{cc.attrs.showLoginAndSignup}" >
                     <h:button class="btn btn-outline-success mr-1" outcome="signIn.xhtml" value="Log In"/>
                     <h:button class="btn btn-outline-success mr-1" outcome="signUp.xhtml" value="Signup"/>
                 </h:form>
