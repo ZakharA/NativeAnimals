@@ -15,13 +15,21 @@
 
         <h:dataTable value="#{cc.attrs.listOfAnimals}" var="animal"
                      styleClass="table table-hover">
-            <h:column>
+            <h:column >
                 <f:facet name="header">ID</f:facet>
                 #{animal.id}
             </h:column>
             <h:column>
                 <f:facet name="header">Common name</f:facet>
                 #{animal.commonName}
+            </h:column>
+            <h:column>
+                <f:facet name="header"></f:facet>
+                <h:form>
+                    <h:commandLink class="mr-2" value="View" action="#" />
+                    <h:commandLink class="mr-2" value="Edit" action="#" />
+                    <h:commandLink class="mr-2" value="Delete" action="#" />
+                </h:form>
             </h:column>
         </h:dataTable>
 
