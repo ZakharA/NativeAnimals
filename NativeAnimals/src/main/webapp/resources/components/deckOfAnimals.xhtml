@@ -9,14 +9,14 @@
 
     <!-- INTERFACE -->
     <cc:interface>
-        <cc:attribute name="listOfAnimals"/>
+        <cc:attribute name="deck"/>
     </cc:interface>
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
         <section>
             <div class="row mb-3">
-                <c:forEach var="animal" items="#{cc.attrs.listOfAnimals}" >
+                <c:forEach var="animal" items="#{cc.attrs.deck}" >
                     <az:animalCard animal="#{animal}"/>
                 </c:forEach>
             </div>
