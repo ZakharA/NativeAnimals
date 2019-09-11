@@ -26,9 +26,9 @@
             <h:column>
                 <f:facet name="header"></f:facet>
                 <h:form>
-                    <h:commandLink class="mr-2" value="View" action="#" />
-                    <h:commandLink class="mr-2" value="Edit" action="#" />
-                    <h:commandLink class="mr-2" value="Delete" action="#" />
+                    <h:link class="mr-2" value="View" outcome="viewAnimal.xhtml?id=#{animal.id}" />
+                    <h:link class="mr-2" value="Edit" outcome="viewAnimal.xhtml?id=#{animal.id}"   />
+                    <h:link class="mr-2" value="Delete" outcome="viewAnimal.xhtml?id=#{animal.id}"  />
                 </h:form>
             </h:column>
         </h:dataTable>
