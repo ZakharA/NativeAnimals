@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <!-- INTERFACE -->
     <cc:interface>
@@ -16,7 +18,9 @@
             <div class="card-body">
                 <h5 class="card-title">#{cc.attrs.animal.getCommonName()}</h5>
                 <p class="card-text"> </p>
-                <a href="#" class="card-link">Go somewhere</a>
+                <h:link outcome="viewAnimal.xhtml" class="card-link">Read more
+                    <f:param name="id" value="#{cc.attrs.animal.id}" />
+                </h:link>
             </div>
         </article>
 

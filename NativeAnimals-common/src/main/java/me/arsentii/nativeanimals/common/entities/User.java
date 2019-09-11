@@ -30,11 +30,11 @@ public class User {
     private String email;
     private String password;
     @Temporal(TemporalType.DATE)
-    private LocalDate registrationDate;
+    private Date registrationDate;
     public User() {
     }
 
-    public User(long id, String userName, String email, String password, LocalDate registrationDate) {
+    public User(long id, String userName, String email, String password, Date registrationDate) {
         this.id = id;
         this.userName = userName;
         this.email = email;
@@ -74,11 +74,11 @@ public class User {
         this.password = password;
     }
 
-    public LocalDate getRegistrationDate() {
+    public Date getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(LocalDate registrationDate) {
+    public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
     }
    

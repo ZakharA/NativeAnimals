@@ -13,7 +13,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import me.arsentii.nativeanimals.common.entities.Animal;
-import me.arsentii.nativeanimals.common.repository.AnimalRepository;
 /**
  *
  * @author zakhar
@@ -44,10 +43,15 @@ public class AnimalRepositoryImp implements AnimalRepository {
             
         }
     }
-
+    
     @Override
     public List<Animal> getAllAnimals() {
         return em.createNamedQuery(Animal.GET_ALL_QUERY_NAME).getResultList();
+    }
+
+    @Override
+    public Animal findById(long id) {
+        return em.find(Animal.class, id);
     }
     
 }

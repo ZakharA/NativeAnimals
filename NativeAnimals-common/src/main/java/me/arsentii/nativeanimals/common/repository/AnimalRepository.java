@@ -34,7 +34,14 @@ public interface AnimalRepository {
      * @param animal
      */
     public void modifyAnimal(Animal animal);
-
+    
+     /** find a animal by id
+     *
+     * @param id
+     * @return animal object
+     */
+    public Animal findById(long id);
+    
     /** select all animals from the repository
      *
      * @return a list of all animals 

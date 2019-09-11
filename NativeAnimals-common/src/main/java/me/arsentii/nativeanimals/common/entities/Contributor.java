@@ -7,7 +7,7 @@
 package me.arsentii.nativeanimals.common.entities;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -27,7 +27,7 @@ public class Contributor extends User implements Serializable {
     }
 
     public Contributor(long id, String userName, String email, String password, List<Animal> createdAnimalArticles) {
-        super(id, userName, email, password,  LocalDate.now());
+        super(id, userName, email, password,  new Date());
         this.createdAnimalArticles = createdAnimalArticles;
     }
 
