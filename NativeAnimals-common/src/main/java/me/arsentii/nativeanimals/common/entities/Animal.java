@@ -57,10 +57,14 @@ enum Habitat {
 }
 
 @Entity
-@NamedQuery(name = Animal.GET_ALL_QUERY_NAME, query = "SELECT a FROM Animal a")
+@NamedQueries({
+    @NamedQuery(name = Animal.GET_ALL_QUERY_NAME, query = "SELECT a FROM Animal a"),
+    @NamedQuery(name = Animal.FIND_BY_NAME_QUERY_NAME, query = "SELECT a FROM Animal a WHERE a.commonName LIKE :commonName")
+})
 public class Animal implements Serializable {
 
     public static final String GET_ALL_QUERY_NAME = "Animal.getAll";
+    public static final String FIND_BY_NAME_QUERY_NAME = "Animal.findByCommonName";
 
     @Id
     @GeneratedValue

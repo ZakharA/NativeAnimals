@@ -47,4 +47,11 @@ public interface AnimalRepository {
      * @return a list of all animals 
      */
     public List<Animal> getAllAnimals();
+    
+    /** find animals by their common name
+     *
+     * @param commonName animal common name
+     * @return list of animals
+     */
+    public List<Animal> findByCommonName(String commonName);
 }
