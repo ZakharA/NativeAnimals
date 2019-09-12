@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:cc="http://xmlns.jcp.org/jsf/composite"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <!-- INTERFACE -->
     <cc:interface>
@@ -11,14 +12,20 @@
     <!-- IMPLEMENTATION -->
     <cc:implementation>
         <h:form>
+            <f:passThroughAttribute name="novalidate" value="novalidate" />
             <div class="row">
-            <div class="input-group mb-3">
-                <h:inputText  class="form-control" value="Animal name" />
-                <div class="input-group-append">
-                    <h:commandButton class="btn btn-outline-secondary" type="button" value="Search" />
+                <div class="input-group mb-3">
+                    <h:inputText id="searchInput"  class="form-control" value="#{searchController.searchValue}"
+                                 validatorMessage="Minimum 3 character long">
+                        <f:passThroughAttribute name="placeholder" value="Search by name"/>
+                        <f:validateLength minimum="3" />
+                    </h:inputText> 
+                    <div class="input-group-append">
+                        <h:commandButton class="btn btn-outline-secondary" action="#{searchController.searchByName()}" value="Search"  />
+                    </div>
                 </div>
+                 <h:message for="searchInput" class="alert alert-danger" role="alert"  />
             </div>
-        </div>
         </h:form>
     </cc:implementation>
 </html>

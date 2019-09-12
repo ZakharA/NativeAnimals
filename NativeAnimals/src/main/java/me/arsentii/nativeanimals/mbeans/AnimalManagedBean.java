@@ -36,4 +36,8 @@ public class AnimalManagedBean implements Serializable {
         }
         return null;
     }
+    
+    public List<Animal> findByCommonName(String commonName) {
+        return animalRepository.findByCommonName(commonName);
+    }
 }
