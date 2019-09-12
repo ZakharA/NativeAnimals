@@ -55,5 +55,7 @@ public class NativeAnimalsApplication {
         List<Animal> result  = animalManagedBean.findByCommonName(searchValue);
         if (result != null)
             this.animals = result;
+        else 
+           initiateAnimalList();
     }
 }
