@@ -12,17 +12,17 @@
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
-
-        <article class="card" >
-            <img class="card-img-top" src="https://via.placeholder.com/250x150"></img>
-            <div class="card-body">
-                <h5 class="card-title">#{cc.attrs.animal.getCommonName()}</h5>
-                <p class="card-text"> </p>
-                <h:link outcome="viewAnimal.xhtml" class="card-link">Read more
-                    <f:param name="id" value="#{cc.attrs.animal.id}" />
-                </h:link>
-            </div>
-        </article>
-
+        <div class="col-lg-6">
+            <article class="card" >
+                <img class="card-img-top" src="https://via.placeholder.com/250x150"></img>
+                <div class="card-body">
+                    <h5 class="card-title">#{cc.attrs.animal.getCommonName()}</h5>
+                    <p class="card-text"> </p>
+                    <h:link outcome="viewAnimal.xhtml" class="card-link">Read more
+                        <f:param name="id" value="#{cc.attrs.animal.id}" />
+                    </h:link>
+                </div>
+            </article>
+        </div>
     </cc:implementation>
 </html>

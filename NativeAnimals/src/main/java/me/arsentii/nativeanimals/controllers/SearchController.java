@@ -6,11 +6,11 @@
 
 package me.arsentii.nativeanimals.controllers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 import me.arsentii.nativeanimals.common.entities.Animal;
 import me.arsentii.nativeanimals.common.repository.AnimalRepository;
@@ -21,18 +21,23 @@ import me.arsentii.nativeanimals.common.repository.AnimalRepository;
  */
 @Named
 @RequestScoped
-public class SearchController {
+public class SearchController implements Serializable {
+    
     @EJB
     private AnimalRepository animalReporsitory;
-    private String searchValue;
-    @Inject
-    NativeAnimalsApplication app;
-    private List<Animal> searchResult;
-
-    public void setApp(NativeAnimalsApplication app) {
-        this.app = app;
-    }
+    private String searchValue = "Fox";
+    private List<Animal> animals = new ArrayList<>();
     
+
+
+    public List<Animal> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(List<Animal> animals) {
+        this.animals = animals;
+    }
+
     public String getSearchValue() {
         return searchValue;
     }
@@ -40,16 +45,19 @@ public class SearchController {
     public void setSearchValue(String searchValue) {
         this.searchValue = searchValue;
     }
-
+    
     public List<Animal> getSearchResult() {
-        return searchResult;
+        return animals;
     }
 
     public void setSearchResult(List<Animal> searchResult) {
-        this.searchResult = searchResult;
+        this.animals = searchResult;
     }
 
     public void searchByName(){
-        app.searchByName(this.searchValue); 
+         List<Animal> result  =  animalReporsitory.findByCommonName(this.searchValue); 
+        if (result != null)
+            this.animals = result;
     }
+    
 }

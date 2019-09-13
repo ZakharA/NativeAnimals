@@ -15,16 +15,18 @@
             <f:passThroughAttribute name="novalidate" value="novalidate" />
             <div class="row">
                 <div class="input-group mb-3">
-                    <h:inputText id="searchInput"  class="form-control" value="#{searchController.searchValue}"
+                    <h:inputText id="searchInput"  class="form-control" 
                                  validatorMessage="Minimum 3 character long" >
                         <f:passThroughAttribute name="placeholder" value="Search by name"/>
                         <f:validateLength minimum="3" />
                     </h:inputText> 
                     <div class="input-group-append">
-                        <h:commandButton class="btn btn-outline-secondary" action="#{searchController.searchByName()}" value="Search"  />
+                        <h:button class="btn btn-outline-secondary" outcome="search.xhtml" value="Search">
+                            <f:param name="searchValue" value="#{searchController.searchValue}" />
+                        </h:button>
                     </div>
                 </div>
-                 <h:message for="searchInput" class="alert alert-danger" role="alert"  />
+                <h:message for="searchInput" class="alert alert-danger" role="alert"  />
             </div>
         </h:form>
     </cc:implementation>

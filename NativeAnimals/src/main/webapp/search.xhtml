@@ -1,0 +1,21 @@
+<ui:composition template="layout.xhtml" xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:az="http://xmlns.jcp.org/jsf/composite/components"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="searchValue" value="#{searchController.searchValue}" required="true" />
+            <f:viewAction action="#{searchController.searchByName}" />
+        </f:metadata>
+    </ui:define>
+    <ui:define name="title">Index</ui:define>
+    <ui:define name="content" >
+        <div class="container">
+            <az:searchBar/>
+            <az:listOfAnimals deck="#{searchController.animals}"/> 
+        </div>
+    </ui:define>
+
+</ui:composition>
+
