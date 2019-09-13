@@ -10,6 +10,7 @@
     <!-- INTERFACE -->
     <cc:interface>
         <cc:attribute name="deck"/>
+        <cc:attribute name="SearchValue" />
     </cc:interface>
 
     <!-- IMPLEMENTATION -->
@@ -20,8 +21,8 @@
                     <az:animalCard animal="#{animal}"/>
                 </c:forEach>
             </c:if>
-            <c:if test="#{cc.attrs.deck == null }">
-                <div>Sorry, could not find anything</div>
+            <c:if test="#{cc.attrs.deck.size() == 0 }">
+                <div>Sorry, could not find anything related to #{cc.attrs.SearchValue} </div>
             </c:if>
         </section>
         <az:pagination/>
