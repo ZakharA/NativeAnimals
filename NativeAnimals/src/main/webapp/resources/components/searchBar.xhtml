@@ -15,8 +15,9 @@
             <f:passThroughAttribute name="novalidate" value="novalidate" />
             <div class="row">
                 <div class="input-group mb-3">
-                    <h:inputText id="searchInput"  class="form-control" 
-                                 validatorMessage="Minimum 3 character long" >
+                    <h:inputText id="searchInput"  class="form-control"
+                                 value="#{searchController.searchValue}"
+                                 validatorMessage="Minimum 3 character long">
                         <f:passThroughAttribute name="placeholder" value="Search by name"/>
                         <f:validateLength minimum="3" />
                     </h:inputText> 

@@ -9,7 +9,26 @@
     <ui:define name="content" >
 
         <div class="container">
-
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card card-signin my-5">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mb-5">Sign In</h5>
+                            <form method="POST" action="j_security_check">
+                                <div class="form-label-group mb-2">
+                                    <label for="j_username">Email address</label>
+                                    <input  id="j_username" class="form-control" required="true" />
+                                </div>
+                                <div class="form-label-group mb-5">
+                                    <label for="j_password">Password</label>
+                                    <input class="form-control"  id="j_password" required="true"  />
+                                </div>
+                                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </ui:define>
 
