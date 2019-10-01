@@ -29,12 +29,9 @@ public class AnimalManagedBean implements Serializable {
     }
     
     public List<Animal> getAllAnimals(){
-        try {
+  
             return animalRepository.getAllAnimals();
-        } catch (Exception e) {
-            
-        }
-        return null;
+       
     }
     
     public List<Animal> findByCommonName(String commonName) {
