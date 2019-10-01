@@ -6,7 +6,7 @@
 package me.arsentii.nativeanimals.common.entities;
 
 import java.io.Serializable;
-import javax.persistence.Embedded;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,6 +14,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -88,6 +90,8 @@ public class Animal implements Serializable {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Habitat habitat;
+    @Temporal(TemporalType.DATE)
+    private Date creationDate;
 
     public Animal() {
     }
@@ -95,7 +99,7 @@ public class Animal implements Serializable {
     public Animal(Long id, String scientificName, String commonName,
             Diet diet, String description,
             Status status, String image, Continent continent,
-            Habitat habitat) {
+            Habitat habitat, Date creationDate) {
         this.id = id;
         this.scientificName = scientificName;
         this.commonName = commonName;
@@ -105,6 +109,7 @@ public class Animal implements Serializable {
         this.image = image;
         this.continent = continent;
         this.habitat = habitat;
+        this.creationDate = creationDate;
     }
 
     public Long getId() {
@@ -192,4 +197,11 @@ public class Animal implements Serializable {
                 + ", habitat=" + habitat + '}';
     }
 
+    public Date getCreationDatee() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
 }
