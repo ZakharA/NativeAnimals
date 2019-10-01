@@ -3,16 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package me.arsentii.nativeanimals.common.entities;
 
-import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToMany;
+import javax.persistence.SecondaryTable;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,9 +23,10 @@ import javax.persistence.TemporalType;
  *
  * @author zakhar
  */
-@MappedSuperclass
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Entity
+@Table(name = "USERS")
 public class User {
+
     @Id
     @GeneratedValue
     private long id;
@@ -31,9 +35,22 @@ public class User {
     private String password;
     @Temporal(TemporalType.DATE)
     private Date registrationDate;
+    private String groupName;
+    @OneToMany
+    private List<Animal> createdEntries;
+
     public User() {
     }
 
+    public User(long id, String userName, String email, String password, Date registrationDate, List<Animal> createdEntries) {
+        this.id = id;
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.registrationDate = registrationDate;
+        this.createdEntries = createdEntries;
+    }
+    
     public User(long id, String userName, String email, String password, Date registrationDate) {
         this.id = id;
         this.userName = userName;
@@ -81,5 +98,20 @@ public class User {
     public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
     }
-   
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public List<Animal> getCreatedEntries() {
+        return createdEntries;
+    }
+
+    public void setCreatedEntries(List<Animal> createdEntries) {
+        this.createdEntries = createdEntries;
+    }
 }

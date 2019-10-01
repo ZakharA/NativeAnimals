@@ -7,21 +7,21 @@
 package me.arsentii.nativeanimals.common.repository;
 
 import javax.ejb.Remote;
-import me.arsentii.nativeanimals.common.entities.Contributor;
+import me.arsentii.nativeanimals.common.entities.User;
 
 /**
  *
  * @author zakhar
  */
 @Remote
-public interface ContributorRepository {
+public interface UserRepository {
 
     /** find user object by username , if it exists, otherwise return null
      *
      * @param name username
      * @return null or user object
      */
-    public Contributor getContributorByUserName(String name);
+    public User getUserByUserName(String name);
     
-    public void addNewContributor(Contributor contributor);
+    public void addNewUser(User user);
 }
