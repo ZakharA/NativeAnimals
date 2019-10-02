@@ -25,7 +25,7 @@ public class SearchController implements Serializable {
     
     @EJB
     private AnimalRepository animalReporsitory;
-    private String searchValue = "Fox";
+    private String searchValue = "";
     private List<Animal> animals = new ArrayList<>();
     
 
