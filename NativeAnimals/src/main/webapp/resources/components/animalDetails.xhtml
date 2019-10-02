@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <!-- INTERFACE -->
     <cc:interface>
@@ -12,9 +14,34 @@
     <cc:implementation>
 
         <article class="card" >
+            <div class="card-header">
+                <h5 class="d-inline mr-2">Status: <span class="badge badge-info">#{cc.attrs.animal.status}</span></h5>
+                <h5 class="d-inline mr-2">Diet: <span class="badge badge-info">#{cc.attrs.animal.diet}</span></h5>
+            </div>
+            <img class="card-img-top" src="..." alt="Card image cap" />
             <div class="card-body">
-                <h5 class="card-title">#{cc.attrs.animal.commonName}</h5>
-                <p class="card-text">#{cc.attrs.animal.description}</p>
+                <h1 class="card-title">#{cc.attrs.animal.commonName}</h1>
+                <h3>#{cc.attrs.animal.scientificName}</h3>
+
+                <section class="card-text">
+                    <h2 class="card-title font-weight-bold">Description</h2>
+                    <p>#{cc.attrs.animal.description}</p>
+                </section>
+
+                <section class="card-text">
+                    <h2 class="card-title font-weight-bold">Location</h2>
+                    <div class="mb-2">
+                        <h5 class="d-inline mr-2">Continent: <span class="badge badge-info">#{cc.attrs.animal.continent}</span></h5>
+                        <h5 class="d-inline mr-2">Habitat: <span class="badge badge-info">#{cc.attrs.animal.habitat}</span></h5>
+                    </div>
+                    <div>MAPS with dots</div>
+                </section>
+            </div>
+            <div class="card-footer text-muted">
+                Created 
+                <h:outputText value="#{cc.attrs.animal.creationDate}">
+                    <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+                </h:outputText>
             </div>
         </article>
 

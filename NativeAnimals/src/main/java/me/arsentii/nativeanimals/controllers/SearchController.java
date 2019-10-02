@@ -27,9 +27,7 @@ public class SearchController implements Serializable {
     private AnimalRepository animalReporsitory;
     private String searchValue = "";
     private List<Animal> animals = new ArrayList<>();
-    
-
-
+   
     public List<Animal> getAnimals() {
         return animals;
     }
