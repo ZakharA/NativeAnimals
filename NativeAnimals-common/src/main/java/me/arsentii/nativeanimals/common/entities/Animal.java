@@ -197,7 +197,7 @@ public class Animal implements Serializable {
                 + ", habitat=" + habitat + '}';
     }
 
-    public Date getCreationDatee() {
+    public Date getCreationDate() {
         return creationDate;
     }
 
