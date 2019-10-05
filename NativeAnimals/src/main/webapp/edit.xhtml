@@ -1,0 +1,87 @@
+<ui:composition template="layout.xhtml" xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:az="http://xmlns.jcp.org/jsf/composite/components"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title">Edit Animal</ui:define>
+
+    <ui:define name="content" >
+        <div class="container">
+            <h3 class="mb-2">Edit </h3>
+            <h:form>
+                <div class="form-group">
+                    <label for="commonName">Common name</label>
+                    <h:inputText class="form-control" id="commonName" />
+                </div>
+                <div class="form-group">
+                    <label for="commonName">Scientific name</label>
+                    <h:inputText class="form-control" id="scientificName" />
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group"> <!-- Diet -->
+                            <label for="diet">Diet</label>
+                            <div id="diet">
+                                <h:selectOneRadio value="" class="custom-control " >
+                                    <f:selectItem itemValue="CARNIVORES" itemLabel="Carnivores" />
+                                    <f:selectItem itemValue="HERBIVORES" itemLabel="Herbivores"  />
+                                    <f:selectItem itemValue="OMNIVORES" itemLabel="Omnivores" />
+                                </h:selectOneRadio>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group"> <!-- Status -->
+                            <label for="status">Status</label>
+                            <div id="status"> 
+                                <h:selectOneRadio value="" class="custom-control " >
+                                    <f:selectItem itemValue="ENDANGERED" itemLabel="Endangered" />
+                                    <f:selectItem itemValue="THREATENED" itemLabel="Threatened" />
+                                    <f:selectItem itemValue="VULNERABLE" itemLabel="Vulnerable" />
+                                </h:selectOneRadio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row" id="location">
+                    <div class="col">
+                        <label for="location">Continent</label>
+                        <div class="form-group">
+                            <h:selectOneMenu value="" id="continent"  class="custom-select">  <!-- Continent -->
+                                <f:selectItem itemValue="AFRICA" itemLabel="Africa" />
+                                <f:selectItem itemValue="ASIA" itemLabel="Asia" />
+                                <f:selectItem itemValue="AUSTRALIA" itemLabel="Australia" />
+                                <f:selectItem itemValue="EUROPE" itemLabel="Europe" />
+                                <f:selectItem itemValue="NORTHAMERICA" itemLabel="North America" />
+                                <f:selectItem itemValue="SOUTHAMERICA" itemLabel="South America" />
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="location">Habitat</label>
+                        <div class="form-group">
+                            <h:selectOneMenu value="" id="habitat" class="custom-select">  <!-- Habitat -->
+                                <f:selectItem itemValue="DESERTS" itemLabel="Deserts" />
+                                <f:selectItem itemValue="GRASSLANDS" itemLabel="Grasslands" />
+                                <f:selectItem itemValue="FORESTS" itemLabel="Forests" />
+                                <f:selectItem itemValue="MOUNTAINS" itemLabel="Mountains" />
+                                <f:selectItem itemValue="FRESHWATER" itemLabel="Freshwater" />
+                                <f:selectItem itemValue="OCEANS" itemLabel="Oceans" />
+                                <f:selectItem itemValue="TUNDRA" itemLabel="Tundra" />
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="commonName">Description</label>
+                    <h:inputTextarea class="form-control" id="description" rows="5" />
+                </div>
+                 <button class="btn btn-primary text-uppercase" type="submit">Save</button>
+            </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>
+
