@@ -40,6 +40,10 @@ public class AnimalController {
     public void modifyAnimal(){
         animalRepository.modifyAnimal(animal);
     }
+    
+    public void deleteAnimal(Animal animalId){
+        animalRepository.removeAnimal(animalId.getId());
+    }
 
     public void setAnimal(Animal animal) {
         this.animal = animal;

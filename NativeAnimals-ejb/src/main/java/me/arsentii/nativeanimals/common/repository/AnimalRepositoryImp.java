@@ -32,9 +32,8 @@ public class AnimalRepositoryImp implements AnimalRepository {
     public void removeAnimal(long animalId) {
         Animal animal = em.find(Animal.class, animalId);
         if (animal != null) {
-            em.getTransaction().begin();
             em.remove(animal);
-            em.getTransaction().commit();
+            em.flush();
         }
     }
 
