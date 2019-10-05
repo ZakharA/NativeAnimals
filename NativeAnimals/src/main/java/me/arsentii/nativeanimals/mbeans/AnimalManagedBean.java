@@ -50,6 +50,7 @@ public class AnimalManagedBean implements Serializable {
     }
     
     public void modifyAnimal(){
+        animal.setId(animalId);
         animalRepository.modifyAnimal(animal);
     }
     
