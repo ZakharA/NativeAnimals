@@ -28,7 +28,7 @@
                 <h:form>
                     <h:link class="mr-2" value="View" outcome="view.xhtml?id=#{animal.id}" />
                     <h:link class="mr-2" value="Edit" outcome="edit.xhtml?id=#{animal.id}"   />
-                    <h:commandLink class="mr-2" value="Delete" action="#{animalController.deleteAnimal(animal)}"  />
+                    <h:commandLink class="mr-2" value="Delete" action="#{animalManagedBean.deleteAnimal(animal)}"  />
                 </h:form>
             </h:column>
         </h:dataTable>

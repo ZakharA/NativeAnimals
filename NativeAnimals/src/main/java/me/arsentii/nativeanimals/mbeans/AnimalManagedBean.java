@@ -24,9 +24,8 @@ public class AnimalManagedBean implements Serializable {
     
     @EJB
     AnimalRepository animalRepository;
-
-    public AnimalManagedBean() {
-    }
+    private Animal animal = new Animal();
+    private long animalId;
     
     public List<Animal> getAllAnimals(){
   
@@ -36,5 +35,43 @@ public class AnimalManagedBean implements Serializable {
     
     public List<Animal> findByCommonName(String commonName) {
         return animalRepository.findByCommonName(commonName);
+    }
+    
+     public AnimalRepository getAnimalRepository() {
+        return animalRepository;
+    }
+
+    public void setAnimalRepository(AnimalRepository animalRepository) {
+        this.animalRepository = animalRepository;
+    }
+
+    public Animal getAnimal() {
+        return animal;
+    }
+    
+    public void modifyAnimal(){
+        animalRepository.modifyAnimal(animal);
+    }
+    
+    public void deleteAnimal(Animal animalId){
+        animalRepository.removeAnimal(animalId.getId());
+    }
+
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
+    }
+    
+    public void findAnimalById() {
+        this.animal = animalRepository.findById(animalId);
+    }
+
+    public long getAnimalId() {
+        return animalId;
+    }
+
+    public void setAnimalId(long animalId) {
+        this.animalId = animalId;
+    }
+    public AnimalManagedBean() {
     }
 }

@@ -5,8 +5,8 @@
                 xmlns:f="http://java.sun.com/jsf/core">
     <ui:define name="metadata">
         <f:metadata>
-            <f:viewParam name="id" value="#{animalController.animalId}" />
-            <f:viewAction action="#{animalController.findAnimalById()}" />
+            <f:viewParam name="id" value="#{animalManagedBean.animalId}" />
+            <f:viewAction action="#{animalManagedBean.findAnimalById()}" />
         </f:metadata>
     </ui:define>
 
@@ -14,7 +14,7 @@
 
     <ui:define name="content" >
         <div class="container">
-            <az:animalDetails animal="#{animalController.animal}" />
+            <az:animalDetails animal="#{animalManagedBean.animal}" />
         </div>
     </ui:define>
 

@@ -70,7 +70,7 @@ public class Animal implements Serializable {
 
     @Id
     @GeneratedValue
-    private Long id;
+    public Long id;
     private String scientificName;
     @NotNull
     private String commonName;
