@@ -48,7 +48,10 @@ public class NativeAnimalsApplication {
     @PostConstruct
     public void initiateAnimalList(){
         animals = new ArrayList<>();
-        this.animals = animalManagedBean.getAllAnimals();
+        this.animals = getAllAnimals();
     }
     
+    public List<Animal> getAllAnimals(){
+        return animalManagedBean.getAllAnimals();
+    }
 }
