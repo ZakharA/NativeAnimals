@@ -3,26 +3,34 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:az="http://xmlns.jcp.org/jsf/composite/components"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="id" value="#{animalController.animalId}" />
+            <f:viewAction action="#{animalController.findAnimalById()}" />
+        </f:metadata>
+    </ui:define>
+
+
     <ui:define name="title">Edit Animal</ui:define>
 
     <ui:define name="content" >
         <div class="container">
-            <h3 class="mb-2">Edit </h3>
+            <h3 class="mb-2">Edit #{animalController.animal.commonName} </h3>
             <h:form>
                 <div class="form-group">
                     <label for="commonName">Common name</label>
-                    <h:inputText class="form-control" id="commonName" />
+                    <h:inputText class="form-control" id="commonName" value="#{animalController.animal.commonName}"  />
                 </div>
                 <div class="form-group">
                     <label for="commonName">Scientific name</label>
-                    <h:inputText class="form-control" id="scientificName" />
+                    <h:inputText class="form-control" id="scientificName" value="#{animalController.animal.scientificName}" />
                 </div>
                 <div class="form-row">
                     <div class="col">
                         <div class="form-group"> <!-- Diet -->
                             <label for="diet">Diet</label>
                             <div id="diet">
-                                <h:selectOneRadio value="" class="custom-control " >
+                                <h:selectOneRadio value="#{animalController.animal.diet}" class="custom-control " >
                                     <f:selectItem itemValue="CARNIVORES" itemLabel="Carnivores" />
                                     <f:selectItem itemValue="HERBIVORES" itemLabel="Herbivores"  />
                                     <f:selectItem itemValue="OMNIVORES" itemLabel="Omnivores" />
@@ -34,7 +42,7 @@
                         <div class="form-group"> <!-- Status -->
                             <label for="status">Status</label>
                             <div id="status"> 
-                                <h:selectOneRadio value="" class="custom-control " >
+                                <h:selectOneRadio value="#{animalController.animal.status}" class="custom-control " >
                                     <f:selectItem itemValue="ENDANGERED" itemLabel="Endangered" />
                                     <f:selectItem itemValue="THREATENED" itemLabel="Threatened" />
                                     <f:selectItem itemValue="VULNERABLE" itemLabel="Vulnerable" />
@@ -48,7 +56,7 @@
                     <div class="col">
                         <label for="location">Continent</label>
                         <div class="form-group">
-                            <h:selectOneMenu value="" id="continent"  class="custom-select">  <!-- Continent -->
+                            <h:selectOneMenu value="#{animalController.animal.continent}" id="continent"  class="custom-select">  <!-- Continent -->
                                 <f:selectItem itemValue="AFRICA" itemLabel="Africa" />
                                 <f:selectItem itemValue="ASIA" itemLabel="Asia" />
                                 <f:selectItem itemValue="AUSTRALIA" itemLabel="Australia" />
@@ -61,7 +69,7 @@
                     <div class="col">
                         <label for="location">Habitat</label>
                         <div class="form-group">
-                            <h:selectOneMenu value="" id="habitat" class="custom-select">  <!-- Habitat -->
+                            <h:selectOneMenu value="#{animalController.animal.habitat}" id="habitat" class="custom-select">  <!-- Habitat -->
                                 <f:selectItem itemValue="DESERTS" itemLabel="Deserts" />
                                 <f:selectItem itemValue="GRASSLANDS" itemLabel="Grasslands" />
                                 <f:selectItem itemValue="FORESTS" itemLabel="Forests" />
@@ -76,9 +84,9 @@
 
                 <div class="form-group">
                     <label for="commonName">Description</label>
-                    <h:inputTextarea class="form-control" id="description" rows="5" />
+                    <h:inputTextarea class="form-control" id="description" rows="5" value="#{animalController.animal.description}" />
                 </div>
-                 <button class="btn btn-primary text-uppercase" type="submit">Save</button>
+                <button class="btn btn-primary text-uppercase" type="submit">Save</button>
             </h:form>
         </div>
     </ui:define>
