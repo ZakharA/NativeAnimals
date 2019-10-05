@@ -86,7 +86,7 @@
                     <label for="commonName">Description</label>
                     <h:inputTextarea class="form-control" id="description" rows="5" value="#{animalController.animal.description}" />
                 </div>
-                <button class="btn btn-primary text-uppercase" type="submit">Save</button>
+                <h:commandButton action="#{animalController.modifyAnimal()}" value="Save" />
             </h:form>
         </div>
     </ui:define>

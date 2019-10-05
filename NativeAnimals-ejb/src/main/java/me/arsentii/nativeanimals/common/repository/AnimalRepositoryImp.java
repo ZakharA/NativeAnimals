@@ -23,14 +23,18 @@ public class AnimalRepositoryImp implements AnimalRepository {
 
     @Override
     public void addNewAnimal(Animal animal) {
+        em.getTransaction().begin();
         em.persist(animal);
+        em.getTransaction().commit();
     }
 
     @Override
     public void removeAnimal(long animalId) {
         Animal animal = em.find(Animal.class, animalId);
         if (animal != null) {
+            em.getTransaction().begin();
             em.remove(animal);
+            em.getTransaction().commit();
         }
     }
 
@@ -38,6 +42,7 @@ public class AnimalRepositoryImp implements AnimalRepository {
     public void modifyAnimal(Animal animal) {
         try {
             em.merge(animal);
+            em.flush();
         } catch (Exception e) {
 
         }

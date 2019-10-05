@@ -36,6 +36,10 @@ public class AnimalController {
     public Animal getAnimal() {
         return animal;
     }
+    
+    public void modifyAnimal(){
+        animalRepository.modifyAnimal(animal);
+    }
 
     public void setAnimal(Animal animal) {
         this.animal = animal;
