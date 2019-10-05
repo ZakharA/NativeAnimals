@@ -12,7 +12,9 @@
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
-
+        <div class="row mb-3 float-right">
+            <h:link outcome="add.xhtml" value="Add Animal" class="btn btn-primary" />
+        </div>
         <h:dataTable value="#{cc.attrs.listOfAnimals}" var="animal"
                      styleClass="table table-hover">
             <h:column >
