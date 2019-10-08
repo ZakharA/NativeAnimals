@@ -6,10 +6,10 @@
     <ui:define name="metadata">
         <f:metadata>
             <f:viewParam name="searchValue" value="#{searchController.searchValue}" required="true" />
-            <f:viewAction action="#{searchController.searchByName}" />
+            <f:viewAction action="#{searchController.searchByName()}" />
         </f:metadata>
     </ui:define>
-    <ui:define name="title">Index</ui:define>
+    <ui:define name="title">Search</ui:define>
     <ui:define name="content" >
         <div class="container">
             <az:searchBar/>

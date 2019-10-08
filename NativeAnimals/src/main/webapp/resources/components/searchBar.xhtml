@@ -22,9 +22,9 @@
                         <f:validateLength minimum="3" />
                     </h:inputText> 
                     <div class="input-group-append">
-                        <h:button class="btn btn-outline-secondary" outcome="search.xhtml" value="Search">
-                            <f:param name="searchValue" value="#{searchController.searchValue}" />
-                        </h:button>
+                        <h:commandButton class="btn btn-outline-secondary"  action="search.xhtml" value="Search">
+                            <f:actionListener binding="#{searchController.searchByName()}" />
+                        </h:commandButton>
                     </div>
                 </div>
                 <h:message for="searchInput" class="alert alert-danger" role="alert"  />
