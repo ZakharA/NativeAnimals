@@ -5,36 +5,42 @@
  */
 package me.arsentii.nativeanimals.common.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
-import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import me.arsentii.nativeanimals.common.customconstraints.Unique;
 /**
  *
  * @author zakhar
  */
 @Entity
 @Table(name = "USERS")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue
     private long id;
+    @NotNull @Size(min = 5, max = 20) 
+    @Unique
     private String userName;
+    @NotNull
+    @Pattern(regexp = "[^@]+@[^\\.]+\\..+")
     private String email;
+    @NotNull @Size(min = 8, max = 30)
     private String password;
     @Temporal(TemporalType.DATE)
     private Date registrationDate;
+    @NotNull
     private String groupName;
     @OneToMany
     private List<Animal> createdEntries;

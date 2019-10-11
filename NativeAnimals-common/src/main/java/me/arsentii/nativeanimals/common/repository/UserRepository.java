@@ -24,4 +24,6 @@ public interface UserRepository {
     public User getUserByUserName(String name);
     
     public void addNewUser(User user);
+
+    public boolean isExistsWithName(String value);
 }
