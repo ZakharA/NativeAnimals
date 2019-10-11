@@ -11,17 +11,17 @@
                     <h2 class="mb-2 text-center">Sign up</h2>
                     <div class="form-group">
                         <label for="email">Email address</label>
-                        <h:inputText class="form-control" id="email" />
+                        <h:inputText class="form-control" id="email" value="#{registrationController.newUser.email}"/>
                     </div>
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <h:inputText class="form-control" id="username" />
+                        <h:inputText class="form-control" id="username" value="#{registrationController.newUser.userName}" />
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <h:inputSecret class="form-control" id="password" />
+                        <h:inputSecret class="form-control" id="password" value="#{registrationController.newUser.password}" />
                     </div>
-                    <h:commandButton type="submit" class="btn btn-primary btn-block" value="Submit" />
+                    <h:commandButton type="submit" class="btn btn-primary btn-block" value="Submit" action="#{registrationController.register}" />
                 </h:form>
             </div>
         </div>
