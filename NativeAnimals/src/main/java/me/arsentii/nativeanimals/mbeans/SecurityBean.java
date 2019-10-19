@@ -5,6 +5,7 @@
  */
 package me.arsentii.nativeanimals.mbeans;
 
+import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.FacesException;
 import javax.faces.context.FacesContext;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Named(value = "securityBean")
 @RequestScoped
-public class SecurityBean {
+public class SecurityBean implements Serializable {
 
     private static final String CONTRIBUTOR_ROLE = "contirbutor";
     private static final String ADMIN_ROLE = "admin";
@@ -38,6 +39,10 @@ public class SecurityBean {
 
     public boolean isContributor() {
         return (this.getHttpServletRequest().isUserInRole(CONTRIBUTOR_ROLE));
+    }
+    
+    public String getUsername(){
+        return (this.getHttpServletRequest().getUserPrincipal().getName());
     }
 
     public void logout() {

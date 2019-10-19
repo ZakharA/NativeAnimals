@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.faces.bean.ManagedProperty;
 import javax.inject.Inject;
 import javax.inject.Named;
 import me.arsentii.nativeanimals.common.entities.Animal;
@@ -26,13 +25,13 @@ public class NativeAnimalsApplication {
     
     @Inject
     private AnimalManagedBean animalManagedBean;
-    
+
     private List<Animal> animals;
 
     public NativeAnimalsApplication() {
         
     }
-    
+
     public void setAnimalManagedBean(AnimalManagedBean animalManagedBean) {
         this.animalManagedBean = animalManagedBean;
     }

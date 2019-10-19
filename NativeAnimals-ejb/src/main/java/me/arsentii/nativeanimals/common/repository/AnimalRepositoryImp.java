@@ -23,9 +23,7 @@ public class AnimalRepositoryImp implements AnimalRepository {
 
     @Override
     public void addNewAnimal(Animal animal) {
-        em.getTransaction().begin();
         em.persist(animal);
-        em.getTransaction().commit();
     }
 
     @Override

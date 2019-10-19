@@ -11,7 +11,9 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import me.arsentii.nativeanimals.common.entities.Animal;
+import me.arsentii.nativeanimals.common.entities.User;
 import me.arsentii.nativeanimals.common.repository.AnimalRepository;
 
 /**
@@ -26,6 +28,18 @@ public class AnimalManagedBean implements Serializable {
     AnimalRepository animalRepository;
     private Animal animal = new Animal();
     private long animalId;
+    
+    @ManagedProperty(value="#{userManagedBean}")
+    private UserManagedBean userBean;
+
+    public UserManagedBean getUserBean() {
+        return userBean;
+    }
+
+    public void setUserBean(UserManagedBean userBean) {
+        this.userBean = userBean;
+    }
+        
     
     public List<Animal> getAllAnimals(){
   
@@ -73,6 +87,14 @@ public class AnimalManagedBean implements Serializable {
     public void setAnimalId(long animalId) {
         this.animalId = animalId;
     }
+    public void addAnimalToUserList(String username) {
+        animalRepository.addNewAnimal(animal);
+        User user = userBean.getUserByName(username);
+        user.getCreatedEntries().size();
+        List<Animal> usersAnimals = user.getCreatedEntries();
+        usersAnimals.add(this.animal);
+    }
+    
     public AnimalManagedBean() {
     }
 }

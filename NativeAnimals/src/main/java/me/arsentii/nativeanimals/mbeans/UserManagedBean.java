@@ -1,9 +1,11 @@
 package me.arsentii.nativeanimals.mbeans;
 
+import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import me.arsentii.nativeanimals.common.entities.User;
+import me.arsentii.nativeanimals.common.repository.AnimalRepository;
 import me.arsentii.nativeanimals.common.repository.UserRepository;
 
 /*
@@ -18,12 +20,19 @@ import me.arsentii.nativeanimals.common.repository.UserRepository;
  */
 @ManagedBean(name = "userManagedBean")
 @RequestScoped
-public class UserManagedBean {
+public class UserManagedBean implements Serializable {
     
     @EJB
     UserRepository userRepository;
     
+    @EJB
+    AnimalRepository animalRepository;
+    
     public void addNewUser(User user){
         userRepository.addNewUser(user);
+    }
+    
+    public User getUserByName(String username) {
+        return userRepository.getUserByUserName(username);
     }
 }

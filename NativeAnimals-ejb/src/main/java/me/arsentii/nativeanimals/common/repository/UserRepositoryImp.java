@@ -28,7 +28,18 @@ public class UserRepositoryImp implements UserRepository {
 
     @Override
     public User getUserByUserName(String name) {
-        return null;
+        try {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<User> cq = cb.createQuery(User.class);
+            Root<User> user = cq.from(User.class);
+            cq.where(cb.equal(user.get("userName"), name));
+            cq.select(user);
+            TypedQuery<User> q = em.createQuery(cq);
+            User result = q.getSingleResult();
+            return result;
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
@@ -43,18 +54,7 @@ public class UserRepositoryImp implements UserRepository {
 
     @Override
     public boolean isExistsWithName(String value) {
-        try {
-            CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<User> cq = cb.createQuery(User.class);
-            Root<User> user = cq.from(User.class);
-            cq.where(cb.equal(user.get("userName"), value));
-            cq.select(user);
-            TypedQuery<User> q = em.createQuery(cq);
-            User result = q.getSingleResult();
-            return true;
-        } catch (NoResultException e) {
-            return false;
-        }
+        return this.getUserByUserName(value) != null;
     }
 
 }
