@@ -25,7 +25,7 @@
                     </li>
                     <c:if test="#{securityBean.loggedIn}">
                         <li class="nav-item">
-                            <h:link class="nav-link" outcome="myAnimals.xhtml"> #{securityBean.admin? "My" : "All"} Animals</h:link>
+                            <h:link class="nav-link" outcome="myAnimals.xhtml"> #{securityBean.admin ? "All" : "My"} Animals</h:link>
                         </li>
                     </c:if>
                 </ul>

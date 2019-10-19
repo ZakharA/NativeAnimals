@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 @RequestScoped
 public class SecurityBean {
 
-    private static String CONTRIBUTOR_ROLE = "Contirbutor";
-    private static String ADMIN_ROLE = "Admin";
+    private static final String CONTRIBUTOR_ROLE = "contirbutor";
+    private static final String ADMIN_ROLE = "admin";
 
     private HttpServletRequest getHttpServletRequest() {
         FacesContext context = FacesContext.getCurrentInstance();
