@@ -35,7 +35,8 @@ public class UserRepositoryImp implements UserRepository {
     public void addNewUser(User user) {
         if (!isExistsWithName(user.getUserName())) {
             user.setRegistrationDate(new Date());
-            user.setGroupName("contributor");
+            user.hashPassword();
+            user.setGroupName("Contributor");
             em.persist(user);
         }
     }

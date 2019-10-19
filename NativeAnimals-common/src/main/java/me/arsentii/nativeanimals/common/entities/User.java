@@ -5,7 +5,9 @@
  */
 package me.arsentii.nativeanimals.common.entities;
 
+import com.google.common.hash.Hashing;
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -19,6 +21,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import me.arsentii.nativeanimals.common.customconstraints.Unique;
+
 /**
  *
  * @author zakhar
@@ -30,13 +33,13 @@ public class User implements Serializable {
     @Id
     @GeneratedValue
     private long id;
-    @NotNull @Size(min = 5, max = 20) 
-    @Unique
+    @NotNull
+    @Size(min = 5, max = 20)
     private String userName;
     @NotNull
     @Pattern(regexp = "[^@]+@[^\\.]+\\..+")
     private String email;
-    @NotNull @Size(min = 8, max = 30)
+    @NotNull
     private String password;
     @Temporal(TemporalType.DATE)
     private Date registrationDate;
@@ -56,7 +59,7 @@ public class User implements Serializable {
         this.registrationDate = registrationDate;
         this.createdEntries = createdEntries;
     }
-    
+
     public User(long id, String userName, String email, String password, Date registrationDate) {
         this.id = id;
         this.userName = userName;
@@ -119,5 +122,11 @@ public class User implements Serializable {
 
     public void setCreatedEntries(List<Animal> createdEntries) {
         this.createdEntries = createdEntries;
+    }
+
+    public void hashPassword() {
+        this.password = Hashing.sha256()
+                .hashString(this.password, StandardCharsets.UTF_8)
+                .toString();
     }
 }
