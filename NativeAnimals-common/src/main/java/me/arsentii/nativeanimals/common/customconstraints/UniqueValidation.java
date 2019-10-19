@@ -7,6 +7,7 @@
 package me.arsentii.nativeanimals.common.customconstraints;
 
 import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import me.arsentii.nativeanimals.common.entities.User;
@@ -18,10 +19,13 @@ import me.arsentii.nativeanimals.common.repository.UserRepository;
  */
 public class UniqueValidation implements ConstraintValidator<Unique, String> {
 
-    @EJB
+    @Inject
     UserRepository userRepository;
     User user;
 
+    public UniqueValidation() {
+    }
+    
     @Override
     public void initialize(Unique constraintAnnotation) {
     }
