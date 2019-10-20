@@ -20,12 +20,12 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <h:link class="nav-link" outcome="index.xhtml">Home <span class="sr-only">(current)</span></h:link>
+                    <li class="nav-item #{view.viewId == '/index.xhtml' ? 'active' : '' }" >
+                        <h:link class="nav-link" outcome="/index.xhtml">Home <span class="sr-only">(current)</span></h:link>
                     </li>
                     <c:if test="#{securityBean.loggedIn}">
-                        <li class="nav-item">
-                            <h:link class="nav-link" outcome="myAnimals.xhtml"> #{securityBean.admin ? "All" : "My"} Animals</h:link>
+                        <li class="nav-item #{view.viewId == '/protectedArea/myAnimals.xhtml' ? 'active' : '' }">
+                            <h:link class="nav-link" outcome="/protectedArea/myAnimals.xhtml"> #{securityBean.admin ? "All" : "My"} Animals</h:link>
                         </li>
                     </c:if>
                 </ul>
