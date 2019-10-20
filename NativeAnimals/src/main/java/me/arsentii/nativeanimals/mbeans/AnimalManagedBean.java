@@ -60,9 +60,10 @@ public class AnimalManagedBean implements Serializable {
         return animal;
     }
 
-    public void modifyAnimal() {
+    public String modifyAnimal() {
         animal.setId(animalId);
         animalRepository.modifyAnimal(animal);
+        return "/protectedArea/myAnimals.xhtml";
     }
 
     public void deleteAnimal(Animal animalId) {
@@ -85,8 +86,9 @@ public class AnimalManagedBean implements Serializable {
         this.animalId = animalId;
     }
 
-    public void addAnimalToUserList(String username) {
+    public String addAnimalToUserList(String username) {
         userBean.addAnimal(username, this.animal);
+        return "/protectedArea/myAnimals.xhtml";
     }
 
     public List<Animal> getAnimalCreatedBy(String username) {
