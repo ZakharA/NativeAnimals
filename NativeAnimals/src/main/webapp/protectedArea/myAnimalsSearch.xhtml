@@ -8,7 +8,7 @@
     <ui:define name="metadata">
         <f:metadata>
             <f:viewParam name="searchValue" value="#{searchController.searchValue}" required="true" />
-            <f:viewAction action="#{searchController.searchByName()}" />
+            <f:viewAction action="#{searchController.SearchInCreatedBy(securityBean.username, securityBean.admin)}" />
         </f:metadata>
     </ui:define>
     <ui:define name="content" >

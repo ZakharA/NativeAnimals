@@ -93,6 +93,10 @@ public class AnimalManagedBean implements Serializable {
         User user = userBean.getUserByName(username);
         return user.getCreatedEntries();
     }
+    
+    public List<Animal> searchByNameInCreatedBy(String username, String animalName){
+        return animalRepository.searchByNameInCreatedBy(username, animalName);
+    }
 
     public AnimalManagedBean() {
     }

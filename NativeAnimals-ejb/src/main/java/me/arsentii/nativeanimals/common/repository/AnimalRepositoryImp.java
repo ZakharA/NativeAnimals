@@ -62,4 +62,15 @@ public class AnimalRepositoryImp implements AnimalRepository {
                 .getResultList();
     }
 
+    @Override
+    public List<Animal> searchByNameInCreatedBy(String userName, String commonName) {
+        return em.createQuery(
+                "select a "
+                + "from Animal a "
+                + "inner join USERS u ON a.CONTRIBUTOR_ID = u.ID "
+                + "where u.username = :userName", Animal.class)
+                .setParameter("userName", userName)
+                .getResultList();
+    }
+
 }

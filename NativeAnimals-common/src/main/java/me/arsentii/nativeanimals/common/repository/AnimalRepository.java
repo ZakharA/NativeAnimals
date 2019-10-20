@@ -54,4 +54,6 @@ public interface AnimalRepository {
      * @return list of animals
      */
     public List<Animal> findByCommonName(String commonName);
+    
+    public List<Animal> searchByNameInCreatedBy(String userName, String commonName);
 }
