@@ -60,6 +60,7 @@ public class UserRepositoryImp implements UserRepository {
 
     @Override
     public void addAnimal(String username, Animal animal) {
+        animal.setCreationDate(new Date());
         User user = getUserByUserName(username);
         user.getCreatedEntries().add(animal);
         em.persist(user);
