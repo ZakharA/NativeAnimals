@@ -35,7 +35,8 @@
                         <h:button class="btn btn-outline-success mr-1" outcome="signUp.xhtml" value="Signup"/>
                     </c:if>
                     <c:if test="#{securityBean.loggedIn}">
-                        <h:outputLabel value="#{securityBean.username}" />
+                      
+                        <h5 class="mr-2 mb-0">Hello #{securityBean.username}!</h5>
                         <h:commandLink class="btn btn-outline-success mr-1" action="#{securityBean.logout()}" value="Logout" />
                     </c:if>
                 </h:form>
