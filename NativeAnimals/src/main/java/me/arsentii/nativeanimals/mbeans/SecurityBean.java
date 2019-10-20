@@ -49,7 +49,7 @@ public class SecurityBean implements Serializable {
         try {
             this.getHttpServletRequest().logout();
             this.getHttpServletRequest().getSession().invalidate();
-            return "index.xhtml";
+            return "/index.xhtml";
         } catch (ServletException e) {
             throw new FacesException("Failure on logout", e);
         }
