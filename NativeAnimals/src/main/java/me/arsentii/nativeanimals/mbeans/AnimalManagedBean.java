@@ -40,7 +40,8 @@ public class AnimalManagedBean implements Serializable {
     }
 
     public List<Animal> getAllAnimals() {
-        return animalRepository.getAllAnimals();
+        List<Animal> an =  animalRepository.getAllAnimals();
+        return an;
     }
 
     public List<Animal> findByCommonName(String commonName) {

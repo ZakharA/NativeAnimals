@@ -18,8 +18,12 @@
         <h:dataTable value="#{cc.attrs.listOfAnimals}" var="animal"
                      styleClass="table table-hover">
             <h:column >
-                <f:facet name="header">ID</f:facet>
+                <f:facet name="header">Animal ID</f:facet>
                 #{animal.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Contributor</f:facet>
+                #{animal.contributor.userName}
             </h:column>
             <h:column>
                 <f:facet name="header">Common name</f:facet>
