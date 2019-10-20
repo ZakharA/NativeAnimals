@@ -7,6 +7,7 @@
 package me.arsentii.nativeanimals.common.repository;
 
 import javax.ejb.Remote;
+import me.arsentii.nativeanimals.common.entities.Animal;
 import me.arsentii.nativeanimals.common.entities.User;
 
 /**
@@ -26,4 +27,6 @@ public interface UserRepository {
     public void addNewUser(User user);
 
     public boolean isExistsWithName(String value);
+    
+    public void addAnimal(String username, Animal animal);
 }

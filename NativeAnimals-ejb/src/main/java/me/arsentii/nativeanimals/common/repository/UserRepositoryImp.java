@@ -14,6 +14,7 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import me.arsentii.nativeanimals.common.entities.Animal;
 import me.arsentii.nativeanimals.common.entities.User;
 
 /**
@@ -55,6 +56,13 @@ public class UserRepositoryImp implements UserRepository {
     @Override
     public boolean isExistsWithName(String value) {
         return this.getUserByUserName(value) != null;
+    }
+
+    @Override
+    public void addAnimal(String username, Animal animal) {
+        User user = getUserByUserName(username);
+        user.getCreatedEntries().add(animal);
+        em.persist(user);
     }
 
 }

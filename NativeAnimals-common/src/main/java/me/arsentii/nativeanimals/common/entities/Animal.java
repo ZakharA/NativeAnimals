@@ -10,8 +10,11 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
@@ -90,6 +93,9 @@ public class Animal implements Serializable {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Habitat habitat;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "contributor_id")
+    private User contributor;
     @Temporal(TemporalType.DATE)
     private Date creationDate;
 
@@ -197,10 +203,18 @@ public class Animal implements Serializable {
                 + ", habitat=" + habitat + '}';
     }
 
+    public User getContributor() {
+        return contributor;
+    }
+
+    public void setContributor(User contributor) {
+        this.contributor = contributor;
+    }
+
     public Date getCreationDate() {
         return creationDate;
     }
-
+    
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }

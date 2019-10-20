@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package me.arsentii.nativeanimals.mbeans;
 
 import java.io.Serializable;
@@ -23,13 +22,13 @@ import me.arsentii.nativeanimals.common.repository.AnimalRepository;
 @ManagedBean(name = "animalManagedBean")
 @SessionScoped
 public class AnimalManagedBean implements Serializable {
-    
+
     @EJB
     AnimalRepository animalRepository;
     private Animal animal = new Animal();
     private long animalId;
-    
-    @ManagedProperty(value="#{userManagedBean}")
+
+    @ManagedProperty(value = "#{userManagedBean}")
     private UserManagedBean userBean;
 
     public UserManagedBean getUserBean() {
@@ -39,19 +38,16 @@ public class AnimalManagedBean implements Serializable {
     public void setUserBean(UserManagedBean userBean) {
         this.userBean = userBean;
     }
-        
-    
-    public List<Animal> getAllAnimals(){
-  
-            return animalRepository.getAllAnimals();
-       
+
+    public List<Animal> getAllAnimals() {
+        return animalRepository.getAllAnimals();
     }
-    
+
     public List<Animal> findByCommonName(String commonName) {
         return animalRepository.findByCommonName(commonName);
     }
-    
-     public AnimalRepository getAnimalRepository() {
+
+    public AnimalRepository getAnimalRepository() {
         return animalRepository;
     }
 
@@ -62,20 +58,20 @@ public class AnimalManagedBean implements Serializable {
     public Animal getAnimal() {
         return animal;
     }
-    
-    public void modifyAnimal(){
+
+    public void modifyAnimal() {
         animal.setId(animalId);
         animalRepository.modifyAnimal(animal);
     }
-    
-    public void deleteAnimal(Animal animalId){
+
+    public void deleteAnimal(Animal animalId) {
         animalRepository.removeAnimal(animalId.getId());
     }
 
     public void setAnimal(Animal animal) {
         this.animal = animal;
     }
-    
+
     public void findAnimalById() {
         this.animal = animalRepository.findById(animalId);
     }
@@ -87,14 +83,16 @@ public class AnimalManagedBean implements Serializable {
     public void setAnimalId(long animalId) {
         this.animalId = animalId;
     }
+
     public void addAnimalToUserList(String username) {
-        animalRepository.addNewAnimal(animal);
-        User user = userBean.getUserByName(username);
-        user.getCreatedEntries().size();
-        List<Animal> usersAnimals = user.getCreatedEntries();
-        usersAnimals.add(this.animal);
+        userBean.addAnimal(username, this.animal);
     }
-    
+
+    public List<Animal> getAnimalCreatedBy(String username) {
+        User user = userBean.getUserByName(username);
+        return user.getCreatedEntries();
+    }
+
     public AnimalManagedBean() {
     }
 }

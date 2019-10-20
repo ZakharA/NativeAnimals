@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
+import me.arsentii.nativeanimals.common.entities.Animal;
 import me.arsentii.nativeanimals.common.entities.User;
 import me.arsentii.nativeanimals.common.repository.AnimalRepository;
 import me.arsentii.nativeanimals.common.repository.UserRepository;
@@ -34,5 +35,9 @@ public class UserManagedBean implements Serializable {
     
     public User getUserByName(String username) {
         return userRepository.getUserByUserName(username);
+    }
+    
+    public void addAnimal(String username, Animal animal){
+        userRepository.addAnimal(username, animal);
     }
 }

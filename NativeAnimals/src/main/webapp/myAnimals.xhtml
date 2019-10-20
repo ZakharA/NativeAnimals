@@ -8,7 +8,7 @@
     <ui:define name="content" >
         <div class="container">
             <az:searchBar grid="true"/>
-            <az:animalGridView listOfAnimals="#{animalManagedBean.allAnimals}"/> 
+            <az:animalGridView listOfAnimals="#{securityBean.admin == true ? animalManagedBean.getAllAnimals() : animalManagedBean.getAnimalCreatedBy(securityBean.username)}"/> 
         </div>
     </ui:define>
 

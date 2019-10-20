@@ -50,7 +50,7 @@ public class User implements Serializable {
     @NotNull
     private String groupName;
     @OneToMany(orphanRemoval=true, fetch = FetchType.EAGER, cascade={CascadeType.ALL})
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "contributor_id")
     private List<Animal> createdEntries;
 
     public User() {
