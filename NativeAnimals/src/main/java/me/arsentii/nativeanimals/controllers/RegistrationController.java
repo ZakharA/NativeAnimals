@@ -40,6 +40,6 @@ public class RegistrationController implements Serializable {
     
     public String register(){
         userManagedBean.addNewUser(newUser);
-        return "index.xhmtl";
+        return "signIn.xhtml";
     }
 }
