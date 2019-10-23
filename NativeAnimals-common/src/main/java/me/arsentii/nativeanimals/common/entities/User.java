@@ -24,7 +24,6 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import me.arsentii.nativeanimals.common.customconstraints.Unique;
 
 /**
  *
@@ -50,7 +49,7 @@ public class User implements Serializable {
     @NotNull
     private String groupName;
     @OneToMany(orphanRemoval=true, fetch = FetchType.EAGER, cascade={CascadeType.ALL})
-    @JoinColumn(name = "contributor_id")
+    @JoinColumn(name = "contributor_id",  nullable = false)
     private List<Animal> createdEntries;
 
     public User() {

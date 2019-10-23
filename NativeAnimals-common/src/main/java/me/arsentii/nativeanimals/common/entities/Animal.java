@@ -94,10 +94,11 @@ public class Animal implements Serializable {
     @Enumerated(EnumType.STRING)
     private Habitat habitat;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "contributor_id")
+    @JoinColumn(name = "contributor_id",  nullable = false)
     private User contributor;
     @Temporal(TemporalType.DATE)
     private Date creationDate;
+    private String Country;
 
     public Animal() {
     }

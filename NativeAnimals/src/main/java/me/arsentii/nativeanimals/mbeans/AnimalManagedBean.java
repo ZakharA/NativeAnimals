@@ -6,6 +6,7 @@
 package me.arsentii.nativeanimals.mbeans;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -87,6 +88,7 @@ public class AnimalManagedBean implements Serializable {
     }
 
     public String addAnimalToUserList(String username) {
+        this.animal.setCreationDate(new Date());
         userBean.addAnimal(username, this.animal);
         return "/protectedArea/myAnimals.xhtml";
     }
