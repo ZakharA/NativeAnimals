@@ -119,6 +119,21 @@ public class Animal implements Serializable {
         this.creationDate = creationDate;
     }
 
+    public Animal(Long id, String scientificName, String commonName, Diet diet, String description, Status status, String image, Continent continent, Habitat habitat, User contributor, Date creationDate, String Country) {
+        this.id = id;
+        this.scientificName = scientificName;
+        this.commonName = commonName;
+        this.diet = diet;
+        this.description = description;
+        this.status = status;
+        this.image = image;
+        this.continent = continent;
+        this.habitat = habitat;
+        this.contributor = contributor;
+        this.creationDate = creationDate;
+        this.Country = Country;
+    }
+
     public Long getId() {
         return id;
     }
@@ -218,5 +233,13 @@ public class Animal implements Serializable {
     
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public String getCountry() {
+        return Country;
+    }
+
+    public void setCountry(String Country) {
+        this.Country = Country;
     }
 }
