@@ -11,7 +11,7 @@
     <ui:define name="content" >
         <div class="container">
             <h3 class="mb-2">Add a new animal</h3>
-            <h:form>
+            <h:form id="CreateAnimal">
                 <div class="form-group">
                     <label for="commonName">Common name</label>
                     <h:inputText class="form-control" id="commonName" value="#{animalManagedBean.animal.commonName}"  />
@@ -76,6 +76,11 @@
                         </div>
                     </div>
                 </div>
+                
+                <div>
+                    <label for="country">Country</label>
+                    <h:inputText id="countries" class="form-control" value="#{animalManagedBean.animal.country}"  />
+                </div>
 
                 <div class="form-group">
                     <label for="commonName">Description</label>
@@ -84,6 +89,9 @@
                 <h:commandButton action="#{animalManagedBean.addAnimalToUserList(securityBean.username)}" value="Save" class="btn btn-primary text-uppercase" />
             </h:form>
         </div>
+    </ui:define>
+    <ui:define name="js">
+        <script src="../resources/countryREST.js" />
     </ui:define>
 
 </ui:composition>
