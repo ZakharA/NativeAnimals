@@ -61,8 +61,10 @@ public class AnimalManagedBean implements Serializable {
         return animal;
     }
 
-    public String modifyAnimal() {
+    public String modifyAnimal(String username) {
+        Animal temp = animalRepository.findById(animalId);
         animal.setId(animalId);
+        animal.setContributor(temp.getContributor());
         animalRepository.modifyAnimal(animal);
         return "/protectedArea/myAnimals.xhtml";
     }
