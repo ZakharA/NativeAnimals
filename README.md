@@ -5,7 +5,7 @@
 
 ## Project description
 A Java EE application allows users to browse and search for native
-animals of different countries. Using JASS, EJBs, Beans, Beans validation, JPA.
+animals of different countries. Written using JASS, EJBs, Beans, Beans validation, JPA.
 
 Main features:
  * Registration
